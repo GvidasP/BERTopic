@@ -235,7 +235,9 @@ class OpenAI(BaseRepresentation):
                 # Check whether content was actually generated
                 # Addresses #1570 for potential issues with OpenAI's content filter
                 if hasattr(response.choices[0].message, "content"):
-                    label = response.choices[0].message.content.strip().replace("topic: ", "")
+                    content = response.choices[0].message.content
+                    if isinstance(content, str):  # Check if content is a string
+                        label = content.strip().replace("topic: ", "")
                 else:
                     label = "No label returned"
             else:

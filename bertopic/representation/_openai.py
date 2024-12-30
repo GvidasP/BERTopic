@@ -237,7 +237,7 @@ class OpenAI(BaseRepresentation):
                 if hasattr(response.choices[0].message, "content"):
                     content = response.choices[0].message.content
                     if isinstance(content, str):  # Check if content is a string
-                        label = content.strip().replace("topic: ", "")
+                        label = re.sub(r"(?i)^topic:\s*", "", content.strip())
                 else:
                     label = "No label returned"
             else:

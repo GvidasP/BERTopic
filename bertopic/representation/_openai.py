@@ -1,5 +1,6 @@
 import time
 import openai
+import re
 import pandas as pd
 from tqdm import tqdm
 from scipy.sparse import csr_matrix

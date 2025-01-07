@@ -4005,20 +4005,20 @@ class BERTopic:
             logger.info("Representation - Completed \u2713")
 
     def _save_representative_docs(self, documents: pd.DataFrame):
-        """Save the 3 most representative docs per topic.
+        """Save the 20 most representative docs per topic.
 
         Arguments:
             documents: Dataframe with documents and their corresponding IDs
 
         Updates:
-            self.representative_docs_: Populate each topic with 3 representative docs
+            self.representative_docs_: Populate each topic with 20 representative docs
         """
         repr_docs, _, _, _ = self._extract_representative_docs(
             self.c_tf_idf_,
             documents,
             self.topic_representations_,
             nr_samples=500,
-            nr_repr_docs=3,
+            nr_repr_docs=20,
         )
         self.representative_docs_ = repr_docs
 

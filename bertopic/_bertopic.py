@@ -913,7 +913,7 @@ class BERTopic:
             topics_at_timestamp = [
                 (
                     topic,
-                    ", ".join([words[0] for words in values][:5]),
+                    ", ".join([words[0] for words in values][:self.top_n_words]),
                     topic_frequency[topic],
                     timestamp,
                 )
